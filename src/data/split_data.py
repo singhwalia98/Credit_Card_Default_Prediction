@@ -33,6 +33,7 @@ def split_and_saved_data(config_path):
     
     except Exception as e:
         logging.error('Some error occured while splitting the Dataset into Train & Test')
+        raise CustomException(e,sys)
     
 if __name__=="__main__":
     args = argparse.ArgumentParser()

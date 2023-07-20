@@ -6,7 +6,7 @@ raw_data_config:
   model_var: ["LIMIT_BAL","SEX","EDUCATION","MARRIAGE","AGE","PAY_0","PAY_2","PAY_3","PAY_4","PAY_5","PAY_6","BILL_AMT1","BILL_AMT2","BILL_AMT3","BILL_AMT4","BILL_AMT5","BILL_AMT6","PAY_AMT1","PAY_AMT2","PAY_AMT3","PAY_AMT4","PAY_AMT5","PAY_AMT6"]
   train_test_split_ratio: 0.3
   target: Default_payment
-  random_state: 111
+  random_state: 40
   new_train_data_csv: data/raw/train_new.csv
 
 processed_data_config:
@@ -21,8 +21,10 @@ mlflow_config:
   remote_server_uri: http://localhost:1234
  
 random_forest: 
-  max_depth: 10
-  n_estimators: 30
+  max_depth: 7
+  min_samples_leaf: 5
+  min_samples_split: 4
+  n_estimators: 40
 
 model_dir: models/model.joblib
 

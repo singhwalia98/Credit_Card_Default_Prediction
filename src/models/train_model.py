@@ -5,46 +5,46 @@ import mlflow
 import argparse
 import numpy as np
 import pandas as pd
+import sys
+from src.logger import logging
+from load_data import read_params
+from src.exception import CustomException
 from urllib.parse import urlparse
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, recall_score, accuracy_score, precision_score, confusion_matrix, classification_report
-
-def read_params(config_path):
-    """
-    To read all the parameters from the params.yaml file
-    input: params.yaml location
-    output: parameters as dictionary
-    """
-    with open(config_path) as yaml_file:
-        config = yaml.safe_load(yaml_file)
-    return config
 
 def accuracymeasures(y_test,predictions,avg_method):
     """
     This function has been defined to measure all the Performance matrices.
     Input: True data & Predicted Data 
-    Output: 
+    Output: Different matrix scores, Confusion Matrix and Classification Report
     """
-    accuracy = accuracy_score(y_test, predictions)
-    precision = precision_score(y_test, predictions, average=avg_method)
-    recall = recall_score(y_test, predictions, average=avg_method)
-    f1score = f1_score(y_test, predictions, average=avg_method)
-    target_names = ['0','1']
-    print("Classification report")
-    print("---------------------","\n")
-    print(classification_report(y_test, predictions,target_names=target_names),"\n")
-    print("Confusion Matrix")
-    print("---------------------","\n")
-    print(confusion_matrix(y_test, predictions),"\n")
+    try:
+        accuracy = accuracy_score(y_test, predictions)
+        precision = precision_score(y_test, predictions, average=avg_method)
+        recall = recall_score(y_test, predictions, average=avg_method)
+        f1score = f1_score(y_test, predictions, average=avg_method)
+        target_names = ['0','1']
+        print("Classification report")
+        print("---------------------","\n")
+        print(classification_report(y_test, predictions,target_names=target_names),"\n")
+        print("Confusion Matrix")
+        print("---------------------","\n")
+        print(confusion_matrix(y_test, predictions),"\n")
 
-    print("Accuracy Measures")
-    print("---------------------","\n")
-    print("Accuracy: ", accuracy)
-    print("Precision: ", precision)
-    print("Recall: ", recall)
-    print("F1 Score: ", f1score)
+        print("Accuracy Measures")
+        print("---------------------","\n")
+        print("Accuracy: ", accuracy)
+        print("Precision: ", precision)
+        print("Recall: ", recall)
+        print("F1 Score: ", f1score)
 
-    return accuracy,precision,recall,f1score
+        logging.info(f"We have received the scores --> accuracy: {accuracy}, precision: {precision}, recall: {recall}, f1score: {f1score}")
+        return accuracy,precision,recall,f1score
+    
+    except Exception as e:
+        logging.error('Some exception occured while checking different accuracy scores of the Model')
+        raise CustomException(e,sys)
 
 def get_feat_and_target(df,target):
     """
@@ -52,11 +52,17 @@ def get_feat_and_target(df,target):
     input: dataframe and target column
     output: two dataframes for x and y 
     """
-    x=df.drop(target,axis=1)
-    y=df[[target]]
-    return x,y    
+    try:
+        x=df.drop(target,axis=1)
+        y=df[[target]]
+        logging.info('We have successfully seggregated the Independent & Dependent variables')
+        return x,y   
+    
+    except Exception as e:
+        logging.error('Exception occured while segreggating the Independent & Target Features') 
 
 def train_and_evaluate(config_path):
+    
     config = read_params(config_path)
     train_data_path = config["processed_data_config"]["train_data_csv"]
     test_data_path = config["processed_data_config"]["test_data_csv"]

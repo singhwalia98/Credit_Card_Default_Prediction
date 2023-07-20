@@ -1,8 +1,11 @@
 import os
 import argparse
+import sys
 import pandas as pd
 from load_data import read_params
 from sklearn.model_selection import train_test_split
+from src.logger import logging
+from src.exception import CustomException
 
 def split_data(df,train_data_path, test_data_path, split_ratio, random_state):
     train, test = train_test_split(df, test_size=split_ratio, random_state=random_state)
@@ -15,14 +18,21 @@ def split_and_saved_data(config_path):
     input: config path 
     output: save splitted files in output folder
     """
-    config = read_params(config_path)
-    raw_data_path = config["raw_data_config"]["raw_data_csv"]
-    test_data_path = config["processed_data_config"]["test_data_csv"] 
-    train_data_path = config["processed_data_config"]["train_data_csv"]
-    split_ratio = config["raw_data_config"]["train_test_split_ratio"]
-    random_state = config["raw_data_config"]["random_state"]
-    raw_df= pd.read_csv(raw_data_path)
-    split_data(raw_df,train_data_path,test_data_path,split_ratio,random_state)
+    try:
+        config = read_params(config_path)
+        raw_data_path = config["raw_data_config"]["raw_data_csv"]
+        test_data_path = config["processed_data_config"]["test_data_csv"] 
+        train_data_path = config["processed_data_config"]["train_data_csv"]
+        split_ratio = config["raw_data_config"]["train_test_split_ratio"]
+        random_state = config["raw_data_config"]["random_state"]
+
+        logging.info('We have started reading the dataset from raw before the split')
+        raw_df= pd.read_csv(raw_data_path)
+        split_data(raw_df,train_data_path,test_data_path,split_ratio,random_state)
+        logging.info('We have successfully split the dataset into Train and Test in processed folder')
+    
+    except Exception as e:
+        logging.error('Some error occured while splitting the Dataset into Train & Test')
     
 if __name__=="__main__":
     args = argparse.ArgumentParser()

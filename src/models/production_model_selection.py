@@ -1,5 +1,6 @@
 import joblib
 import mlflow
+import logging
 import argparse
 import sys
 from pprint import pprint
@@ -22,6 +23,7 @@ try:
         max_accuracy_run_id = list(runs[runs["metrics.accuracy"] == max_accuracy]["run_id"])[0]
         
         client = MlflowClient()
+        logged_model = None
         for mv in client.search_model_versions(f"name='{model_name}'"):
             logging.info('We have started the loop to look for the Best model using their Accuracy scores')
             mv = dict(mv)
@@ -36,9 +38,15 @@ try:
                 current_version = mv["version"]
                 client.transition_model_version_stage(name=model_name,version=current_version,stage="Staging")        
 
-        loaded_model = mlflow.pyfunc.log_model(logged_model)
-        joblib.dump(loaded_model, model_dir)
-        logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
+        if logged_model is not None:
+            loaded_model = mlflow.pyfunc.log_model(logged_model)
+            joblib.dump(loaded_model, model_dir)
+            logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
+
+        else:
+            loaded_model = mlflow.pyfunc.log_model(logged_model)
+            joblib.dump(loaded_model, model_dir)
+            logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
 
 except Exception as e:
     logging.error('Exception occured while choosing the Best model and dumping it in Models dir')

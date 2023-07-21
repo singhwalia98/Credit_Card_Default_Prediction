@@ -14,7 +14,6 @@ try:
         mlflow_config = config["mlflow_config"] 
         model_name = mlflow_config["registered_model_name"]
         model_dir = config["model_dir"]
-        print("Model Directory Path:", model_dir)
         remote_server_uri = mlflow_config["remote_server_uri"]
 
         mlflow.set_tracking_uri(remote_server_uri)
@@ -31,20 +30,13 @@ try:
                 current_version = mv["version"]
                 logged_model = mv["source"]
                 pprint(mv, indent=4)
-                client.transition_model_version_stage(
-                    name=model_name,
-                    version=current_version,
-                    stage="Production"
-                )
+                client.transition_model_version_stage(name=model_name,version=current_version,stage="Production")
+            
             else:
                 current_version = mv["version"]
-                client.transition_model_version_stage(
-                    name=model_name,
-                    version=current_version,
-                    stage="Staging"
-                )        
+                client.transition_model_version_stage(name=model_name,version=current_version,stage="Staging")        
 
-        loaded_model = mlflow.pyfunc.load_model(logged_model)
+        loaded_model = mlflow.pyfunc.log_model(logged_model)
         joblib.dump(loaded_model, model_dir)
         logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
 

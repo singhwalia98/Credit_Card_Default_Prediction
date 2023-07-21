@@ -101,15 +101,15 @@ def train_and_evaluate(config_path):
 
     try:
 
-        with mlflow.start_run(run_name=mlflow_config["run_name"]) as mlops_run:
+        with mlflow.start_run(run_name=mlflow_config["run_name"],nested=True) as mlops_run:
             model = RandomForestClassifier(max_depth=max_depth,min_samples_leaf=min_samples_leaf, min_samples_split=min_samples_split,n_estimators=n_estimators)
             model.fit(train_x, train_y)
             y_pred = model.predict(test_x)
             accuracy,precision,recall,f1score = accuracymeasures(test_y,y_pred,'weighted')
 
             mlflow.log_param("max_depth",max_depth)
-            mlflow.log_param("n_estimators", min_samples_leaf)
-            mlflow.log_param("n_estimators", min_samples_split)
+            mlflow.log_param("min_samples_leaf", min_samples_leaf)
+            mlflow.log_param("min_samples_split", min_samples_split)
             mlflow.log_param("n_estimators", n_estimators)
 
             mlflow.log_metric("accuracy", accuracy)

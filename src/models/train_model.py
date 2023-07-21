@@ -120,12 +120,9 @@ def train_and_evaluate(config_path):
             tracking_url_type_store = urlparse(mlflow.get_artifact_uri()).scheme
 
             if tracking_url_type_store != "file":
-                mlflow.sklearn.log_model(
-                    model, 
-                    "model", 
-                    registered_model_name=mlflow_config["registered_model_name"])
+                mlflow.sklearn.log_model(model, "model", registered_model_name=mlflow_config["registered_model_name"])
             else:
-                mlflow.sklearn.load_model(model, "model")
+                mlflow.sklearn.log_model(model, "model")
     
     except Exception as e:
         logging.error('Some error occured while running the experiments using MLFLOW')

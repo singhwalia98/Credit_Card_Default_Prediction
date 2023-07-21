@@ -36,3 +36,24 @@ stages:
       hash: md5
       md5: ce87bc67ba944c053ece2b65c983e715
       size: 2455992
+  model_train:
+    cmd: python src/models/train_model.py --config=params.yaml
+    deps:
+    - path: data/processed/churn_test.csv
+      hash: md5
+      md5: 8b17454f5a6c4ee173336219f4725db4
+      size: 1052525
+    - path: data/processed/churn_train.csv
+      hash: md5
+      md5: ce87bc67ba944c053ece2b65c983e715
+      size: 2455992
+    - path: src/models/train_model.py
+      hash: md5
+      md5: 8524705be2287432bfffbf122cf1c47f
+      size: 5575
+    params:
+      params.yaml:
+        random_forest.max_depth: 7
+        random_forest.min_samples_leaf: 5
+        random_forest.min_samples_split: 4
+        random_forest.n_estimators: 40

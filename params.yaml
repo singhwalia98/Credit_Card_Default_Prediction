@@ -26,7 +26,7 @@ random_forest:
   min_samples_split: 4
   n_estimators: 40
 
-model_dir: models/model.joblib
+model_dir: src/models/model.joblib
 
 model_webapp_dir: webapp/model_webapp_dir/model.joblib
 

@@ -7,11 +7,20 @@ import numpy as np
 import pandas as pd
 import sys
 from src.logger import logging
-from load_data import read_params
 from src.exception import CustomException
 from urllib.parse import urlparse
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, recall_score, accuracy_score, precision_score, confusion_matrix, classification_report
+
+def read_params(config_path):
+    try:
+        with open(config_path) as yaml_file:
+            config = yaml.safe_load(yaml_file)
+        return config
+    
+    except Exception as e:
+        logging.error('Some exception happened while reading the parameters from the yaml file.')
+        raise CustomException(e,sys)
 
 def accuracymeasures(y_test,predictions,avg_method):
     """
@@ -55,10 +64,10 @@ def get_feat_and_target(df,target):
     try:
         x=df.drop(target,axis=1)
         y=df[[target]]
-        return x,y   
+        return x,y
     
     except Exception as e:
-        logging.error('Exception occured while segreggating the Independent & Target Features') 
+        raise CustomException(e,sys) 
 
 def train_and_evaluate(config_path):
 
@@ -80,8 +89,9 @@ def train_and_evaluate(config_path):
 
     except Exception as e:
         logging.error('We have received some error while seggregating dependent and independent features')
+        raise CustomException(e,sys)
 
-################### MLFLOW ###############################
+################### `MLFLOW` ###############################
 
     mlflow_config = config["mlflow_config"]
     remote_server_uri = mlflow_config["remote_server_uri"]
@@ -92,7 +102,7 @@ def train_and_evaluate(config_path):
     try:
 
         with mlflow.start_run(run_name=mlflow_config["run_name"]) as mlops_run:
-            model = RandomForestClassifier(max_depth=max_depth,n_estimators=n_estimators, min_samples_leaf=min_samples_leaf, min_samples_split=min_samples_split)
+            model = RandomForestClassifier(max_depth=max_depth,min_samples_leaf=min_samples_leaf, min_samples_split=min_samples_split,n_estimators=n_estimators)
             model.fit(train_x, train_y)
             y_pred = model.predict(test_x)
             accuracy,precision,recall,f1score = accuracymeasures(test_y,y_pred,'weighted')

@@ -43,11 +43,6 @@ try:
             joblib.dump(loaded_model, model_dir)
             logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
 
-        else:
-            loaded_model = mlflow.pyfunc.log_model(logged_model)
-            joblib.dump(loaded_model, model_dir)
-            logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
-
 except Exception as e:
     logging.error('Exception occured while choosing the Best model and dumping it in Models dir')
     raise CustomException(e,sys)

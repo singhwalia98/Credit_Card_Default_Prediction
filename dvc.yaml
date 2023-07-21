@@ -32,7 +32,7 @@ stages:
     cmd: python src/models/production_model_selection.py --config=params.yaml
     deps:
     - src/models/production_model_selection.py
-    - src/models/train_model.py
+    
     params:
     - random_forest.max_depth
     - random_forest.min_samples_leaf

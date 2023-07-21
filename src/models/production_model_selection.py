@@ -14,6 +14,7 @@ try:
         mlflow_config = config["mlflow_config"] 
         model_name = mlflow_config["registered_model_name"]
         model_dir = config["model_dir"]
+        print("Model Directory Path:", model_dir)
         remote_server_uri = mlflow_config["remote_server_uri"]
 
         mlflow.set_tracking_uri(remote_server_uri)
@@ -22,7 +23,6 @@ try:
         max_accuracy_run_id = list(runs[runs["metrics.accuracy"] == max_accuracy]["run_id"])[0]
         
         client = MlflowClient()
-        logged_model = None
         for mv in client.search_model_versions(f"name='{model_name}'"):
             logging.info('We have started the loop to look for the Best model using their Accuracy scores')
             mv = dict(mv)
@@ -43,10 +43,10 @@ try:
                     version=current_version,
                     stage="Staging"
                 )        
-        if logged_model is not None:
-            loaded_model = mlflow.pyfunc.load_model(logged_model)
-            joblib.dump(loaded_model, model_dir)
-            logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
+
+        loaded_model = mlflow.pyfunc.load_model(logged_model)
+        joblib.dump(loaded_model, model_dir)
+        logging.info('We have found our best Model and has been dumped successfully using Joblib in the Models dir')
 
 except Exception as e:
     logging.error('Exception occured while choosing the Best model and dumping it in Models dir')

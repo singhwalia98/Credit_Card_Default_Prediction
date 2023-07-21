@@ -53,7 +53,7 @@ stages:
       size: 5575
     params:
       params.yaml:
-        random_forest.max_depth: 7
+        random_forest.max_depth: 6
         random_forest.min_samples_leaf: 5
-        random_forest.min_samples_split: 4
-        random_forest.n_estimators: 40
+        random_forest.min_samples_split: 5
+        random_forest.n_estimators: 100

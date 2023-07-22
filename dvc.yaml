@@ -32,11 +32,13 @@ stages:
     cmd: python src/models/production_model_selection.py --config=params.yaml
     deps:
     - src/models/production_model_selection.py
-    
     params:
     - random_forest.max_depth
     - random_forest.min_samples_leaf
     - random_forest.min_samples_split
     - random_forest.n_estimators
+    - mlflow_config.remote_server_uri
+    - mlflow_config.registered_model_name
+    - model_dir
     outs:
     - models/model.joblib

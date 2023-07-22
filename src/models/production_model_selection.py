@@ -33,12 +33,16 @@ def log_production_model(config_path, mlflow_config, max_accuracy_run_id):
 
         if logged_model is not None:
             model = load_model(logged_model)
+            print("Model loaded successfully from MLflow.")
+            print("Saving model to:", model_dir)  # Debugging line
             joblib.dump(model, model_dir)
+            print("Model saved successfully using Joblib.")  # Debugging line
             logging.info('We have found our best Model and have been dumped successfully using Joblib in the Models dir')
 
     except Exception as e:
-        logging.error('Exception occured while choosing the Best model and dumping it in Models dir')
-        raise CustomException(e,sys)
+        print("Exception occurred while saving the model:", e)  # Debugging line
+        logging.error('Exception occurred while choosing the Best model and dumping it in Models dir')
+        raise CustomException(e, sys)
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()

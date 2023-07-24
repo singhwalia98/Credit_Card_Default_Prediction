@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/1bfe046380ab44608dea90826d429b37/artifacts
+end_time: 1690130033159
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: 1bfe046380ab44608dea90826d429b37
+run_name: efficient-vole-512
+run_uuid: 1bfe046380ab44608dea90826d429b37
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690130032999
+status: 3
+tags: []
+user_id: resha

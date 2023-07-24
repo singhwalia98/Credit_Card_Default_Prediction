@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/7d980e7ad1c6495fb1c31a91cfb6582a/artifacts
+end_time: 1690178963473
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: 7d980e7ad1c6495fb1c31a91cfb6582a
+run_name: debonair-stoat-902
+run_uuid: 7d980e7ad1c6495fb1c31a91cfb6582a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690178955951
+status: 3
+tags: []
+user_id: resha

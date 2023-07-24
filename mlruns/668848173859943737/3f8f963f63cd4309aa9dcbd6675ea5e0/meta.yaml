@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/3f8f963f63cd4309aa9dcbd6675ea5e0/artifacts
+end_time: 1690201460075
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: 3f8f963f63cd4309aa9dcbd6675ea5e0
+run_name: languid-deer-693
+run_uuid: 3f8f963f63cd4309aa9dcbd6675ea5e0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690201447254
+status: 3
+tags: []
+user_id: resha

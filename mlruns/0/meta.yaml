@@ -1,6 +1,6 @@
-artifact_location: mlflow-artifacts:/0
-creation_time: 1689925489745
+artifact_location: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/0
+creation_time: 1690124021287
 experiment_id: '0'
-last_update_time: 1689925489745
+last_update_time: 1690124021287
 lifecycle_stage: active
 name: Default

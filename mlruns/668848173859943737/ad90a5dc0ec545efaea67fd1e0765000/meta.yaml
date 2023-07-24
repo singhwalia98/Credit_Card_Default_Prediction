@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/ad90a5dc0ec545efaea67fd1e0765000/artifacts
+end_time: 1690130444638
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: ad90a5dc0ec545efaea67fd1e0765000
+run_name: peaceful-pig-566
+run_uuid: ad90a5dc0ec545efaea67fd1e0765000
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690130438074
+status: 3
+tags: []
+user_id: resha

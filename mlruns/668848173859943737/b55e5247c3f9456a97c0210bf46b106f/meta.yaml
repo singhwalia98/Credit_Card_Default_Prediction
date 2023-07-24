@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/b55e5247c3f9456a97c0210bf46b106f/artifacts
+end_time: 1690124567656
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: b55e5247c3f9456a97c0210bf46b106f
+run_name: luxuriant-bee-255
+run_uuid: b55e5247c3f9456a97c0210bf46b106f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690124554589
+status: 3
+tags: []
+user_id: resha

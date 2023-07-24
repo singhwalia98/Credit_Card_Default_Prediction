@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/d7c899ab827e4b088027d3f4ae427be6/artifacts
+end_time: 1690202447798
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: d7c899ab827e4b088027d3f4ae427be6
+run_name: smiling-elk-690
+run_uuid: d7c899ab827e4b088027d3f4ae427be6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690202428842
+status: 3
+tags: []
+user_id: resha

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/187c2d75002149be8ba5dc63caba61cf/artifacts
+end_time: 1690130438028
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: 187c2d75002149be8ba5dc63caba61cf
+run_name: sassy-whale-827
+run_uuid: 187c2d75002149be8ba5dc63caba61cf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690130430477
+status: 3
+tags: []
+user_id: resha

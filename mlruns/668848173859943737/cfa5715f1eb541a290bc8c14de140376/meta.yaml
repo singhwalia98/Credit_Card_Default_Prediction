@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/cfa5715f1eb541a290bc8c14de140376/artifacts
+end_time: 1690129545776
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: cfa5715f1eb541a290bc8c14de140376
+run_name: gifted-chimp-646
+run_uuid: cfa5715f1eb541a290bc8c14de140376
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690129532275
+status: 3
+tags: []
+user_id: resha

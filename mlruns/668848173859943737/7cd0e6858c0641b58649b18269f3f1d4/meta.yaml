@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/7cd0e6858c0641b58649b18269f3f1d4/artifacts
+end_time: 1690124388908
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: 7cd0e6858c0641b58649b18269f3f1d4
+run_name: likeable-shad-241
+run_uuid: 7cd0e6858c0641b58649b18269f3f1d4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690124377358
+status: 3
+tags: []
+user_id: resha

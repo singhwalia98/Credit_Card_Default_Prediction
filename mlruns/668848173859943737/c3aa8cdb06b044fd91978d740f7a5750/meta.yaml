@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/c3aa8cdb06b044fd91978d740f7a5750/artifacts
+end_time: 1690178533718
+entry_point_name: ''
+experiment_id: '668848173859943737'
+lifecycle_stage: active
+run_id: c3aa8cdb06b044fd91978d740f7a5750
+run_name: wise-stoat-506
+run_uuid: c3aa8cdb06b044fd91978d740f7a5750
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690178527549
+status: 3
+tags: []
+user_id: resha

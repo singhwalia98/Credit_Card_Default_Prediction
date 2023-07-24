@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1690129545710
+current_stage: Staging
+description: ''
+last_updated_timestamp: 1690202989694
+name: random_forest_model
+run_id: cfa5715f1eb541a290bc8c14de140376
+run_link: ''
+source: file:///D:/Ineuron/Credit_Card_Default_Prediction/artifacts/668848173859943737/cfa5715f1eb541a290bc8c14de140376/artifacts/model
+status: READY
+status_message: null
+user_id: null
+version: 3

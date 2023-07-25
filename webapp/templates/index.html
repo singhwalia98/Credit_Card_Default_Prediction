@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+    {% block custom_css %}
+    {% endblock custom_css %}
+
+    <title>
+        {% block title %}
+        ChurnPrediction
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    {% block body %}
+    <!-- nav bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/">Churn Prediction Model</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/shanakaChathu/churn_model">source code</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <!-- nav bar ends -->
+
+        <div class="container-fluid masthead">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <form method="POST">
+                            <!-- Input block -->
+                            <div class="form-group">
+                                <label for="translation">
+                                    <blockquote class="blockquote">
+                                        <p class="mb-2">Enter the details as indicated:</p>
+                                    </blockquote>
+                                </label>
+                                <!-- Dropdown for Gender -->
+                                <select class="form-control" name="SEX">
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                                <!-- Dropdown for Education -->
+                                <select class="form-control" name="EDUCATION">
+                                    <option value="1">Graduate School</option>
+                                    <option value="2">University</option>
+                                    <option value="3">High School</option>
+                                    <option value="4">Others</option>
+                                    <option value="5">Unknown</option>
+                                    <option value="6">Unknown</option>
+                                </select>
+                                <!-- Dropdown for Marital Status -->
+                                <select class="form-control" name="MARRIAGE">
+                                    <option value="1">Married</option>
+                                    <option value="2">Single</option>
+                                    <option value="3">Others</option>
+                                </select>
+                                
+                                <textarea class="form-control" name="LIMIT_BAL" rows="1" placeholder="LIMIT_BAL"></textarea>
+                                <textarea class="form-control" name="AGE" rows="1" placeholder="AGE"></textarea>
+                                <textarea class="form-control" name="BILL_AMT1" rows="1" placeholder="BILL_AMT1"></textarea>
+                                <textarea class="form-control" name="BILL_AMT2" rows="1" placeholder="BILL_AMT2"></textarea>
+                                <textarea class="form-control" name="BILL_AMT3" rows="1" placeholder="BILL_AMT3"></textarea>
+                                <textarea class="form-control" name="BILL_AMT4" rows="1" placeholder="BILL_AMT4"></textarea>
+                                <textarea class="form-control" name="BILL_AMT5" rows="1" placeholder="BILL_AMT5"></textarea>
+                                <textarea class="form-control" name="BILL_AMT6" rows="1" placeholder="BILL_AMT6"></textarea>
+                                <textarea class="form-control" name="PAY_AMT1" rows="1" placeholder="PAY_AMT1"></textarea>
+                                <textarea class="form-control" name="PAY_AMT2" rows="1" placeholder="PAY_AMT2"></textarea>
+                                <textarea class="form-control" name="PAY_AMT3" rows="1" placeholder="PAY_AMT3"></textarea>
+                                <textarea class="form-control" name="PAY_AMT4" rows="1" placeholder="PAY_AMT4"></textarea>
+                                <textarea class="form-control" name="PAY_AMT5" rows="1" placeholder="PAY_AMT5"></textarea>
+                                <textarea class="form-control" name="PAY_AMT6" rows="1" placeholder="PAY_AMT6"></textarea>
+
+                                <!-- Dropdown for PAY_0 -->
+                                <select class="form-control" name="PAY_0">
+                                    <option value="-1">Pay Duly</option>
+                                    <option value="1">Payment Delay for One Month</option>
+                                    <option value="2">Payment Delay for Two Months</option>
+                                    <option value="3">Payment Delay for Three Months</option>
+                                    <option value="4">Payment Delay for Four Months</option>
+                                    <option value="5">Payment Delay for Five Months</option>
+                                    <option value="6">Payment Delay for Six Months</option>
+                                    <option value="7">Payment Delay for Seven Months</option>
+                                    <option value="8">Payment Delay for Eight Months</option>
+                                    <option value="9">Payment Delay for Nine Months and Above</option>
+                                </select>
+                                <!-- Dropdown for PAY_2 -->
+                                <select class="form-control" name="PAY_2">
+                                    <option value="-1">Pay Duly</option>
+                                    <option value="1">Payment Delay for One Month</option>
+                                    <option value="2">Payment Delay for Two Months</option>
+                                    <option value="3">Payment Delay for Three Months</option>
+                                    <option value="4">Payment Delay for Four Months</option>
+                                    <option value="5">Payment Delay for Five Months</option>
+                                    <option value="6">Payment Delay for Six Months</option>
+                                    <option value="7">Payment Delay for Seven Months</option>
+                                    <option value="8">Payment Delay for Eight Months</option>
+                                    <option value="9">Payment Delay for Nine Months and Above</option>
+                                </select>
+                                <!-- Dropdown for PAY_3 -->
+                                <select class="form-control" name="PAY_3">
+                                    <option value="-1">Pay Duly</option>
+                                    <option value="1">Payment Delay for One Month</option>
+                                    <option value="2">Payment Delay for Two Months</option>
+                                    <option value="3">Payment Delay for Three Months</option>
+                                    <option value="4">Payment Delay for Four Months</option>
+                                    <option value="5">Payment Delay for Five Months</option>
+                                    <option value="6">Payment Delay for Six Months</option>
+                                    <option value="7">Payment Delay for Seven Months</option>
+                                    <option value="8">Payment Delay for Eight Months</option>
+                                    <option value="9">Payment Delay for Nine Months and Above</option>
+                                </select>
+                                <!-- Dropdown for PAY_4 -->
+                                <select class="form-control" name="PAY_4">
+                                    <option value="-1">Pay Duly</option>
+                                    <option value="1">Payment Delay for One Month</option>
+                                    <option value="2">Payment Delay for Two Months</option>
+                                    <option value="3">Payment Delay for Three Months</option>
+                                    <option value="4">Payment Delay for Four Months</option>
+                                    <option value="5">Payment Delay for Five Months</option>
+                                    <option value="6">Payment Delay for Six Months</option>
+                                    <option value="7">Payment Delay for Seven Months</option>
+                                    <option value="8">Payment Delay for Eight Months</option>
+                                    <option value="9">Payment Delay for Nine Months and Above</option>
+                                </select>
+                                <!-- Dropdown for PAY_5 -->
+                                <select class="form-control" name="PAY_5">
+                                    <option value="-1">Pay Duly</option>
+                                    <option value="1">Payment Delay for One Month</option>
+                                    <option value="2">Payment Delay for Two Months</option>
+                                    <option value="3">Payment Delay for Three Months</option>
+                                    <option value="4">Payment Delay for Four Months</option>
+                                    <option value="5">Payment Delay for Five Months</option>
+                                    <option value="6">Payment Delay for Six Months</option>
+                                    <option value="7">Payment Delay for Seven Months</option>
+                                    <option value="8">Payment Delay for Eight Months</option>
+                                    <option value="9">Payment Delay for Nine Months and Above</option>
+                                </select>
+                                <!-- Dropdown for PAY_6 -->
+                                <select class="form-control" name="PAY_6">
+                                    <option value="-1">Pay Duly</option>
+                                    <option value="1">Payment Delay for One Month</option>
+                                    <option value="2">Payment Delay for Two Months</option>
+                                    <option value="3">Payment Delay for Three Months</option>
+                                    <option value="4">Payment Delay for Four Months</option>
+                                    <option value="5">Payment Delay for Five Months</option>
+                                    <option value="6">Payment Delay for Six Months</option>
+                                    <option value="7">Payment Delay for Seven Months</option>
+                                    <option value="8">Payment Delay for Eight Months</option>
+                                    <option value="9">Payment Delay for Nine Months and Above</option>
+                                </select>
+
+                            </div>
+                            <!-- Select output language here. -->
+                            <div class="form-group">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2">Predict</button></br>
+                            </br>
+                        </form>
+                        <!-- Translated text returned by the Translate API is rendered here. -->
+                    </div>
+                    <div class="col">
+                        <form>
+                            <div class="form-group">
+                                <label for="translation-result">
+
+                                    <blockquote class="blockquote">
+                                        <p class="mb-2">Prediction:</p>
+                                    </blockquote>
+
+                                </label>
+                                <textarea readonly class="form-control" id="exTextarea" rows="5">{{ response }}</textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {% endblock body %}
+
+            {% block custom_js %}
+            <!-- Custom JS -->
+            <script src="{{ url_for('static', filename='script/index.js') }}"></script>
+            {% endblock custom_js %}
+</body>
+
+</html>

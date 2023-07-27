@@ -8,13 +8,14 @@
     <br />
     <a href="https://github.com/singhwalia98/Credit_Card_Default_Prediction/blob/main/app.py">View Flask app code</a>
     ·
-    <a href="https://youtu.be/yourvideourl">Watch Demo Video</a>
+    <a href="https://youtu.be/nE07x-peX2U">Watch Demo Video</a>
   </p>
 </div>
 
+
 <!-- ABOUT THE PROJECT -->
 ## 👨‍💻 About The Project
-The Credit Card Default Prediction project aims to predict whether a credit card user is likely to default on payment in the next month or not. The project includes Data preprocessing, Feature engineering, Model training, and Model evaluation. The best-performing model will be deployed using Flask on Microsoft Azure to make Predictions. 
+The Credit Card Default Prediction project (Internship project from iNeuron.ai) aims to predict whether a credit card user is likely to default on payment in the next month or not. The project includes Data preprocessing, Feature engineering, Model training, and Model evaluation. The best-performing model will be deployed using Flask on Microsoft Azure to make Predictions. 
 
 <!-- DATA AND MODELS -->
 ## 📊 Data and Models
@@ -41,24 +42,12 @@ The project uses a dataset containing information about credit card users and th
 
 <!-- USAGE -->
 ## ❇️ Usage
+
 * Install the required Python libraries mentioned above.
-* Perform data preprocessing and feature engineering on the dataset.
+* Perform data preprocessing and feature engineering on the dataset and then use the cleaned dataset for Model building.
 * Train and evaluate the machine learning models using the dataset.
-* Select the best-performing model for deployment.
-* Use the Flask app to interact with the deployed model and predict credit card defaults.
-
-<!-- DEPLOYMENT IMAGES -->
-## 🖼️ Deployment Images
-
-### GitHub Actions CI/CD Pipeline
-![CI/CD Pipeline using GitHub Actions](https://example.com/path/to/your/image.png)
-
-### Cloud Platform Deployment
-![Cloud Platform Deployment](https://example.com/path/to/your/image.png)
-
-<!-- VIDEO DEMO -->
-## 🎥 Video Demo
-[![Watch Video Demo](https://example.com/path/to/your/image.png)](https://youtu.be/yourvideourl)
+* Select the `best-performing model` for deployment. Best Accuracy was given by RandomForestClassifier; hence that was chosen for Predictions. 
+* Use the Flask app to interact with the deployed model and predict if the customer is going to default next month or not.
 
 <!-- MLFLOW EXPERIMENTS -->
 ## 📊 MLflow Experiments
@@ -68,6 +57,12 @@ The project uses a dataset containing information about credit card users and th
 ### Data Version Control (DVC) Directed Acyclic Graph
 ![DVC_Dag](https://github.com/singhwalia98/Credit_Card_Default_Prediction/assets/121790782/5e4efe75-ca43-4ec6-bf3e-81bf91775701)
 
+<!-- DEPLOYMENT IMAGES -->
+## 🖼️ Cloud Deployment
+
+### Microsoft Azure Deployment (Web App)
+
+https://github.com/singhwalia98/Credit_Card_Default_Prediction/assets/121790782/d9f4042a-59dd-4935-a860-6075a5835ab7
 
 <!-- CONTACT -->
 ## 📌 Contact
@@ -82,5 +77,3 @@ The project uses a dataset containing information about credit card users and th
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ---
-
-Please make sure to replace the image URLs (e.g., "https://example.com/path/to/your/image.png") with the actual URLs of your images for the project, including the logos, deployment images, video demo, MLflow experiments, and DVC DAG.
